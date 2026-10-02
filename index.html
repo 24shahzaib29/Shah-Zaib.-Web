@@ -1,0 +1,1248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- ==========================================================================
+       PAGE TITLE & METADATA (Change title and description here)
+       ========================================================================== -->
+  <title>Shahzaib - Front-End Web Developer Portfolio</title>
+  <meta name="description" content="Modern, high-performance personal portfolio of Shahzaib, a Front-End Web Developer specializing in clean, responsive, and interactive digital experiences.">
+  <meta property="og:title" content="Shahzaib - Front-End Web Developer Portfolio">
+  <meta property="og:description" content="Modern, high-performance personal portfolio of Shahzaib, a Front-End Web Developer specializing in clean, responsive, and interactive digital experiences.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="./WhatsApp Image 2026-10-02 at 8.01.40 AM.jpeg">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Google Fonts: Syne (Display/Headings) + Plus Jakarta Sans (Body) + JetBrains Mono (Code) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+  <!-- ==========================================================================
+       0. PAGE PRELOADER & SCROLL PROGRESS BAR
+       ========================================================================== -->
+  <div class="page-preloader" id="pagePreloader" aria-hidden="true">
+    <div class="preloader-content">
+      <div class="preloader-logo">
+        <span class="logo-name">Shahzaib</span><span class="logo-dot">.</span>
+      </div>
+      <div class="preloader-bar">
+        <div class="preloader-progress"></div>
+      </div>
+      <span class="preloader-subtext">Loading Portfolio...</span>
+    </div>
+  </div>
+
+  <!-- Scroll Progress Indicator (Top of viewport) -->
+  <div class="scroll-progress-bar" id="scrollProgressBar" aria-hidden="true"></div>
+
+  <!-- Background Canvas for Subtle Animated Nodes -->
+  <canvas class="bg-ambient-canvas" id="ambientCanvas" aria-hidden="true"></canvas>
+
+  <!-- ==========================================================================
+       1. STICKY GLASS NAVIGATION BAR
+       ========================================================================== -->
+  <header class="site-header" id="siteHeader">
+    <div class="header-container">
+      
+      <!-- Logo / Brand Title -->
+      <a href="#home" class="brand-logo" aria-label="Shahzaib Homepage">
+        <span class="logo-symbol">&lt;/&gt;</span>
+        <span class="logo-text">Shahzaib<span class="logo-dot">.</span></span>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="desktop-nav" aria-label="Main Navigation">
+        <ul class="nav-list">
+          <li><a href="#home" class="nav-link active">Home</a></li>
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#skills" class="nav-link">Skills</a></li>
+          <li><a href="#projects" class="nav-link">Projects</a></li>
+          <li><a href="#videos" class="nav-link">Videos</a></li>
+          <li><a href="#services" class="nav-link">Services</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Header Action Buttons -->
+      <div class="header-actions">
+        <!-- Quick WhatsApp Button in Nav -->
+        <a href="https://wa.me/923496146037" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm dynamic-whatsapp-link" aria-label="Chat on WhatsApp">
+          <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+          </svg>
+          <span>Quick Chat</span>
+        </a>
+
+        <!-- Mobile Hamburger Toggle -->
+        <button type="button" class="mobile-toggle" id="mobileMenuBtn" aria-label="Toggle mobile menu" aria-expanded="false" aria-controls="mobileDrawer">
+          <span class="hamburger-bar bar-1"></span>
+          <span class="hamburger-bar bar-2"></span>
+          <span class="hamburger-bar bar-3"></span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="mobile-drawer" id="mobileDrawer" aria-hidden="true">
+    <div class="drawer-content">
+      <div class="drawer-header">
+        <div class="brand-logo">
+          <span class="logo-symbol">&lt;/&gt;</span>
+          <span class="logo-text">Shahzaib<span class="logo-dot">.</span></span>
+        </div>
+        <button type="button" class="drawer-close" id="drawerCloseBtn" aria-label="Close navigation menu">
+          <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+
+      <ul class="mobile-nav-list">
+        <li><a href="#home" class="mobile-nav-link">Home</a></li>
+        <li><a href="#about" class="mobile-nav-link">About</a></li>
+        <li><a href="#skills" class="mobile-nav-link">Skills</a></li>
+        <li><a href="#projects" class="mobile-nav-link">Projects</a></li>
+        <li><a href="#videos" class="mobile-nav-link">Videos</a></li>
+        <li><a href="#services" class="mobile-nav-link">Services</a></li>
+        <li><a href="#contact" class="mobile-nav-link">Contact</a></li>
+      </ul>
+
+      <div class="mobile-drawer-footer">
+        <a href="#contact" class="btn btn-primary btn-block">Hire Me Now</a>
+        <div class="mobile-socials">
+          <a href="https://wa.me/923496146037" target="_blank" rel="noopener noreferrer" class="social-icon-btn dynamic-whatsapp-link" title="WhatsApp" aria-label="WhatsApp">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+          </a>
+          <a href="https://www.linkedin.com/in/shahzaib-jamshaid-401605405?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener noreferrer" class="social-icon-btn dynamic-linkedin-link" title="LinkedIn" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+          </a>
+          <a href="https://github.com/shahzaib" target="_blank" rel="noopener noreferrer" class="social-icon-btn dynamic-github-link" title="GitHub" aria-label="GitHub">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="drawer-backdrop" id="drawerBackdrop"></div>
+
+  <!-- Main Content Landmark -->
+  <main>
+
+    <!-- ==========================================================================
+         SECTION 1: HERO / HOME SECTION
+         ========================================================================== -->
+    <section class="hero-section" id="home">
+      <!-- Ambient Lighting Blobs -->
+      <div class="ambient-glow glow-hero-1" aria-hidden="true"></div>
+      <div class="ambient-glow glow-hero-2" aria-hidden="true"></div>
+
+      <div class="container hero-container">
+        
+        <!-- Left Column: Introduction & Interactive CTAs -->
+        <div class="hero-content reveal-on-scroll">
+          
+          <!-- Live Availability Status Pill -->
+          <div class="hero-status-pill">
+            <span class="status-pulse-dot"></span>
+            <span class="status-pill-text">Available for Freelance & Full-Time Work</span>
+          </div>
+
+          <!-- Developer Name & Animated Typing Title -->
+          <h1 class="hero-title">
+            Hi, I'm <span class="text-accent gradient-text" id="devName">Shahzaib</span>
+          </h1>
+
+          <!-- Typing Headline Container -->
+          <div class="hero-typing-box" aria-label="Specialization">
+            <span class="typing-prefix">I am a </span>
+            <span class="typing-text" id="typingText">Front-End Web Developer</span>
+            <span class="typing-cursor" aria-hidden="true">|</span>
+          </div>
+
+          <!-- High-Impact Value Proposition -->
+          <p class="hero-description">
+            I craft high-performance, responsive, and pixel-perfect web interfaces using clean semantic HTML5, modern CSS3 architecture, and lightweight Vanilla JavaScript. No bulky frameworks — just pure, lightning-fast digital experiences that engage users and drive client results.
+          </p>
+
+          <!-- Action Buttons Group (Projects, Contact, WhatsApp, LinkedIn) -->
+          <div class="hero-cta-group">
+            <a href="#projects" class="btn btn-primary btn-glow">
+              <span>View Projects</span>
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </a>
+            
+            <a href="#contact" class="btn btn-secondary">
+              <span>Contact Me</span>
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            </a>
+
+            <!-- Direct WhatsApp Quick Connect -->
+            <a href="https://wa.me/923496146037" target="_blank" rel="noopener noreferrer" class="btn btn-glass dynamic-whatsapp-link" title="Chat on WhatsApp">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+              <span>WhatsApp</span>
+            </a>
+
+            <!-- LinkedIn Quick Connect -->
+            <a href="https://www.linkedin.com/in/shahzaib-jamshaid-401605405?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener noreferrer" class="btn btn-glass dynamic-linkedin-link" title="View LinkedIn Profile">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+              <span>LinkedIn</span>
+            </a>
+          </div>
+
+          <!-- Proof Metrics Bar -->
+          <div class="hero-stats-bar">
+            <div class="stat-unit">
+              <div class="stat-number-wrap">
+                <span class="stat-counter" data-target="3">0</span><span class="stat-plus">+</span>
+              </div>
+              <span class="stat-title">Years Experience</span>
+            </div>
+            <div class="stat-separator"></div>
+            <div class="stat-unit">
+              <div class="stat-number-wrap">
+                <span class="stat-counter" data-target="28">0</span><span class="stat-plus">+</span>
+              </div>
+              <span class="stat-title">Completed Projects</span>
+            </div>
+            <div class="stat-separator"></div>
+            <div class="stat-unit">
+              <div class="stat-number-wrap">
+                <span class="stat-counter" data-target="99">0</span><span class="stat-plus">%</span>
+              </div>
+              <span class="stat-title">Lighthouse Score</span>
+            </div>
+            <div class="stat-separator"></div>
+            <div class="stat-unit">
+              <div class="stat-number-wrap">
+                <span class="stat-counter" data-target="100">0</span><span class="stat-plus">%</span>
+              </div>
+              <span class="stat-title">Client Satisfaction</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right Column: Professional Profile Card + Live Code Editor Mockup -->
+        <div class="hero-workspace-col reveal-on-scroll delay-1">
+          
+          <!-- Combined Developer Showcase Card -->
+          <div class="hero-card-stack">
+            
+            <!-- Top Half: Developer Profile Headshot -->
+            <div class="profile-hero-frame">
+              <img src="./WhatsApp Image 2026-10-02 at 8.01.40 AM.jpeg" alt="Shahzaib - Front-End Web Developer" class="hero-portrait" id="heroPortrait" loading="eager" referrerpolicy="no-referrer">
+              <div class="profile-glow-ring"></div>
+              
+              <!-- Floating Pill Overlays -->
+              <div class="floating-pill-left">
+                <span class="pill-dot green"></span>
+                <span>Vanilla JS Specialist</span>
+              </div>
+
+              <div class="floating-pill-right">
+                <span class="pill-icon">⚡</span>
+                <span>Zero Bloat · 60fps</span>
+              </div>
+            </div>
+
+            <!-- Bottom Half: Interactive Syntax-Highlighted Code Editor Mockup -->
+            <div class="code-editor-card" id="codeEditorCard">
+              <div class="editor-header">
+                <div class="editor-traffic-lights">
+                  <span class="light red"></span>
+                  <span class="light yellow"></span>
+                  <span class="light green"></span>
+                </div>
+                <div class="editor-tabs" role="tablist">
+                  <button type="button" class="editor-tab active" data-tab="developer">developer.js</button>
+                  <button type="button" class="editor-tab" data-tab="skills">skills.css</button>
+                  <button type="button" class="editor-tab" data-tab="contact">info.json</button>
+                </div>
+                <span class="editor-badge">ES6+</span>
+              </div>
+
+              <div class="editor-body">
+                <pre class="code-content active" id="code-developer"><code><span class="code-keyword">const</span> <span class="code-var">developer</span> = {
+  <span class="code-prop">name</span>: <span class="code-string">"Shahzaib"</span>,
+  <span class="code-prop">role</span>: <span class="code-string">"Front-End Web Developer"</span>,
+  <span class="code-prop">focus</span>: [<span class="code-string">"Clean Code"</span>, <span class="code-string">"Responsive UI"</span>, <span class="code-string">"High Speed"</span>],
+  <span class="code-prop">status</span>: <span class="code-string">"Open for Freelance Projects"</span>,
+  <span class="code-func">buildExperience</span>() {
+    <span class="code-keyword">return</span> <span class="code-string">"Fast, Accessible &amp; Pixel-Perfect"</span>;
+  }
+};</code></pre>
+
+                <pre class="code-content" id="code-skills"><code><span class="code-selector">.front-end-engineer</span> {
+  <span class="code-prop">html5</span>: <span class="code-string">semantic-and-accessible</span>;
+  <span class="code-prop">css3</span>: <span class="code-string">flexbox-grid-and-animations</span>;
+  <span class="code-prop">javascript</span>: <span class="code-string">vanilla-es6-modular</span>;
+  <span class="code-prop">performance</span>: <span class="code-string">sub-second-loading</span>;
+  <span class="code-prop">responsiveness</span>: <span class="code-string">all-devices-supported</span>;
+}</code></pre>
+
+                <pre class="code-content" id="code-contact"><code>{
+  <span class="code-prop">"developer"</span>: <span class="code-string">"Shahzaib"</span>,
+  <span class="code-prop">"whatsapp"</span>: <span class="code-string">"+92 3496146037 "</span>,
+  <span class="code-prop">"email"</span>: <span class="code-string">"shahzaib107027@gmail.com"</span>,
+  <span class="code-prop">"availability"</span>: <span class="code-string">"Immediate"</span>,
+  <span class="code-prop">"satisfactionRate"</span>: <span class="code-string">"100%"</span>
+}</code></pre>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECTION 2: ABOUT ME SECTION
+         ========================================================================== -->
+    <section class="section about-section" id="about">
+      <div class="container">
+        
+        <div class="section-header reveal-on-scroll">
+          <p class="section-kicker">About Me</p>
+          <h2 class="section-title">Passion for Clean Code & Intuitive Digital Experiences</h2>
+          <div class="section-line"></div>
+        </div>
+
+        <div class="about-grid">
+          
+          <!-- Left: Narrative & Detailed Developer Focus -->
+          <div class="about-narrative reveal-on-scroll">
+            <h3 class="about-lead-title">Transforming Design Visions into Reliable, Fast Web Products</h3>
+            <p class="about-p">
+              I am a dedicated Front-End Web Developer with a genuine passion for writing structured semantic HTML5, highly responsive CSS3 stylesheets, and lightweight Vanilla JavaScript. I bridge the gap between creative visual designs and rock-solid technical implementation.
+            </p>
+            <p class="about-p">
+              In a web ecosystem overcrowded with bloated libraries and slow-loading frameworks, I pride myself on crafting clean, framework-free solutions that achieve 99+ Lighthouse performance scores, instant page interactions, and flawless cross-browser fidelity.
+            </p>
+
+            <!-- Career Goals & Pillars -->
+            <div class="about-focus-cards">
+              <div class="focus-card">
+                <div class="focus-icon-wrap">
+                  <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 12l10 5 10-5"></path></svg>
+                </div>
+                <div>
+                  <h4 class="focus-title">Front-End Specialization</h4>
+                  <p class="focus-text">Deep mastery of native DOM APIs, custom CSS property architectures, responsive flex/grid layouts, and web accessibility standards.</p>
+                </div>
+              </div>
+
+              <div class="focus-card">
+                <div class="focus-icon-wrap">
+                  <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+                </div>
+                <div>
+                  <h4 class="focus-title">Continuous Growth & Goals</h4>
+                  <p class="focus-text">Relentlessly pushing the boundaries of client-side web capabilities, creative micro-interactions, progressive web apps, and design engineering.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- About CTAs -->
+            <div class="about-cta-row">
+              <a href="#contact" class="btn btn-primary">
+                <span>Start a Project</span>
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+              </a>
+              <a href="https://wa.me/923496146037" target="_blank" rel="noopener noreferrer" class="btn btn-outline dynamic-whatsapp-link">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                <span>Direct WhatsApp</span>
+              </a>
+            </div>
+
+          </div>
+
+          <!-- Right: Clean Profile Snapshot & Stat Cards -->
+          <div class="about-sidebar reveal-on-scroll delay-1">
+            
+            <!-- Snapshot Details Card -->
+            <div class="info-snapshot-card">
+              <h4 class="snapshot-header">Developer Profile Snapshot</h4>
+              <ul class="snapshot-list">
+                <li>
+                  <span class="snap-label">Full Name</span>
+                  <span class="snap-val">Shahzaib</span>
+                </li>
+                <li>
+                  <span class="snap-label">Role</span>
+                  <span class="snap-val">Front-End Web Developer</span>
+                </li>
+                <li>
+                  <span class="snap-label">Core Tech</span>
+                  <span class="snap-val">HTML5 · CSS3 · Vanilla JS</span>
+                </li>
+                <li>
+                  <span class="snap-label">Experience</span>
+                  <span class="snap-val text-accent">3+ Years Practical Work</span>
+                </li>
+                <li>
+                  <span class="snap-label">Availability</span>
+                  <span class="snap-val text-accent">Freelance &amp; Full-Time</span>
+                </li>
+                <li>
+                  <span class="snap-label">Location</span>
+                  <span class="snap-val">Worldwide Remote</span>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Mini Highlight Stat Box -->
+            <div class="philosophy-highlight-box">
+              <div class="quote-symbol">“</div>
+              <p class="quote-text">
+                Clean code is not just about what works today — it's about building accessible, performant foundations that delight users and scale effortlessly tomorrow.
+              </p>
+              <span class="quote-author">— Shahzaib, Front-End Engineer</span>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECTION 3: SKILLS SECTION (Progress Indicators & Category Filters)
+         ========================================================================== -->
+    <section class="section skills-section" id="skills">
+      <div class="container">
+        
+        <div class="section-header reveal-on-scroll">
+          <p class="section-kicker">Technical Competence</p>
+          <h2 class="section-title">Front-End Skills &amp; Proficiencies</h2>
+          <div class="section-line"></div>
+        </div>
+
+        <!-- Skill Category Tabs -->
+        <div class="skills-filter-nav reveal-on-scroll" role="tablist">
+          <button type="button" class="skill-tab active" data-skill-cat="all">All Skills</button>
+          <button type="button" class="skill-tab" data-skill-cat="core">Core Web Tech</button>
+          <button type="button" class="skill-tab" data-skill-cat="design">Design &amp; Responsive</button>
+          <button type="button" class="skill-tab" data-skill-cat="tools">Tools &amp; Workflow</button>
+        </div>
+
+        <!-- Skills Cards Grid -->
+        <div class="skills-showcase-grid" id="skillsGrid">
+          
+          <!-- Skill 1: HTML5 -->
+          <div class="skill-metric-card reveal-on-scroll" data-category="core">
+            <div class="skill-card-top">
+              <div class="skill-badge-icon">🌐</div>
+              <div class="skill-title-group">
+                <h3 class="skill-card-name">HTML5</h3>
+                <span class="skill-tag">Core Standard</span>
+              </div>
+              <span class="skill-percent-number" data-target="96">0%</span>
+            </div>
+            
+            <div class="skill-meter-track">
+              <div class="skill-meter-bar" style="--skill-pct: 96%;"></div>
+            </div>
+            
+            <p class="skill-explanation">
+              Semantic structure, accessible landmarks (ARIA), technical on-page SEO, audio/video integration, and clean DOM nesting.
+            </p>
+          </div>
+
+          <!-- Skill 2: CSS3 -->
+          <div class="skill-metric-card reveal-on-scroll" data-category="core">
+            <div class="skill-card-top">
+              <div class="skill-badge-icon">🎨</div>
+              <div class="skill-title-group">
+                <h3 class="skill-card-name">CSS3</h3>
+                <span class="skill-tag">Styling &amp; Motion</span>
+              </div>
+              <span class="skill-percent-number" data-target="94">0%</span>
+            </div>
+            
+            <div class="skill-meter-track">
+              <div class="skill-meter-bar" style="--skill-pct: 94%;"></div>
+            </div>
+            
+            <p class="skill-explanation">
+              CSS Grid, multi-axis Flexbox, CSS custom variables, keyframe animations, glassmorphism, and hardware-accelerated transitions.
+            </p>
+          </div>
+
+          <!-- Skill 3: JavaScript -->
+          <div class="skill-metric-card reveal-on-scroll" data-category="core">
+            <div class="skill-card-top">
+              <div class="skill-badge-icon">⚡</div>
+              <div class="skill-title-group">
+                <h3 class="skill-card-name">JavaScript</h3>
+                <span class="skill-tag">Vanilla ES6+</span>
+              </div>
+              <span class="skill-percent-number" data-target="90">0%</span>
+            </div>
+            
+            <div class="skill-meter-track">
+              <div class="skill-meter-bar" style="--skill-pct: 90%;"></div>
+            </div>
+            
+            <p class="skill-explanation">
+              DOM manipulation, asynchronous Fetch API, event delegation, LocalStorage management, dynamic URL state, and modular functions.
+            </p>
+          </div>
+
+          <!-- Skill 4: Responsive Web Design -->
+          <div class="skill-metric-card reveal-on-scroll" data-category="design">
+            <div class="skill-card-top">
+              <div class="skill-badge-icon">📱</div>
+              <div class="skill-title-group">
+                <h3 class="skill-card-name">Responsive Web Design</h3>
+                <span class="skill-tag">Multi-Device</span>
+              </div>
+              <span class="skill-percent-number" data-target="98">0%</span>
+            </div>
+            
+            <div class="skill-meter-track">
+              <div class="skill-meter-bar" style="--skill-pct: 98%;"></div>
+            </div>
+            
+            <p class="skill-explanation">
+              Mobile-first CSS media queries, fluid typography scaling, touch target optimizations, and testing on real devices.
+            </p>
+          </div>
+
+          <!-- Skill 5: UI Design -->
+          <div class="skill-metric-card reveal-on-scroll" data-category="design">
+            <div class="skill-card-top">
+              <div class="skill-badge-icon">✨</div>
+              <div class="skill-title-group">
+                <h3 class="skill-card-name">UI Design</h3>
+                <span class="skill-tag">Layout &amp; UX</span>
+              </div>
+              <span class="skill-percent-number" data-target="88">0%</span>
+            </div>
+            
+            <div class="skill-meter-track">
+              <div class="skill-meter-bar" style="--skill-pct: 88%;"></div>
+            </div>
+            
+            <p class="skill-explanation">
+              Visual hierarchy, color theory, spacing mathematics, typography hierarchy, Figma-to-code translation, and UX ergonomics.
+            </p>
+          </div>
+
+          <!-- Skill 6: Git & GitHub -->
+          <div class="skill-metric-card reveal-on-scroll" data-category="tools">
+            <div class="skill-card-top">
+              <div class="skill-badge-icon">🐙</div>
+              <div class="skill-title-group">
+                <h3 class="skill-card-name">Git &amp; GitHub</h3>
+                <span class="skill-tag">Version Control</span>
+              </div>
+              <span class="skill-percent-number" data-target="87">0%</span>
+            </div>
+            
+            <div class="skill-meter-track">
+              <div class="skill-meter-bar" style="--skill-pct: 87%;"></div>
+            </div>
+            
+            <p class="skill-explanation">
+              Git commands, branch workflows, commit hygiene, repository management, GitHub Pages deployment, and team collaboration.
+            </p>
+          </div>
+
+          <!-- Skill 7: MS Office -->
+          <div class="skill-metric-card reveal-on-scroll" data-category="tools">
+            <div class="skill-card-top">
+              <div class="skill-badge-icon">📊</div>
+              <div class="skill-title-group">
+                <h3 class="skill-card-name">MS Office</h3>
+                <span class="skill-tag">Productivity</span>
+              </div>
+              <span class="skill-percent-number" data-target="92">0%</span>
+            </div>
+            
+            <div class="skill-meter-track">
+              <div class="skill-meter-bar" style="--skill-pct: 92%;"></div>
+            </div>
+            
+            <p class="skill-explanation">
+              Technical documentation with Word, data organization &amp; formulas with Excel, and client presentations with PowerPoint.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECTION 4: PROJECTS SHOWCASE (Including Pizza Club, Portfolio, E-commerce, Business)
+         ========================================================================== -->
+    <section class="section projects-section" id="projects">
+      <div class="container">
+        
+        <div class="section-header reveal-on-scroll">
+          <p class="section-kicker">Featured Projects</p>
+          <h2 class="section-title">Real-World Front-End Development Work</h2>
+          <div class="section-line"></div>
+        </div>
+
+        <!-- Project Category Filter Tabs -->
+        <div class="project-category-tabs reveal-on-scroll" role="tablist">
+          <button type="button" class="proj-tab-btn active" data-filter="all">All Projects</button>
+          <button type="button" class="proj-tab-btn" data-filter="restaurant">Restaurant &amp; Food</button>
+          <button type="button" class="proj-tab-btn" data-filter="ecommerce">E-Commerce</button>
+          <button type="button" class="proj-tab-btn" data-filter="business">Business &amp; Agency</button>
+          <button type="button" class="proj-tab-btn" data-filter="portfolio">Portfolios</button>
+        </div>
+
+        <!-- Projects Grid Container -->
+        <div class="projects-master-grid" id="projectsContainer">
+          
+          <!-- Project 1: Pizza Club Restaurant Website (Requested) -->
+          <article class="project-showcase-card reveal-on-scroll" data-category="restaurant">
+            <div class="card-media-wrap">
+              <img src="./project_pizza.jpg" alt="Pizza Club Restaurant Website" class="card-thumbnail" loading="lazy" referrerpolicy="no-referrer">
+              <div class="card-media-overlay">
+                <span class="category-chip">Food &amp; Hospitality</span>
+              </div>
+              <button type="button" class="card-quick-view-btn project-preview-btn" data-project-id="1" aria-label="Quick View Pizza Club Project">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                <span>Project Preview</span>
+              </button>
+            </div>
+            
+            <div class="card-details">
+              <div class="card-meta-line">
+                <span>Restaurant Platform</span>
+                <span class="meta-dot">·</span>
+                <span>Online Menu &amp; Ordering</span>
+              </div>
+              <h3 class="card-project-title">Pizza Club Restaurant Website</h3>
+              <p class="card-project-desc">
+                An artisan pizza and Italian restaurant digital experience featuring an interactive visual food menu, instant dish customization, dynamic cart drawer, and table reservation booking system.
+              </p>
+
+              <!-- Technologies Used -->
+              <div class="card-tech-row">
+                <span class="tech-item">HTML5</span>
+                <span class="tech-item">CSS3 Grid</span>
+                <span class="tech-item">Vanilla JS</span>
+                <span class="tech-item">Responsive UI</span>
+              </div>
+
+              <!-- Action Links -->
+              <div class="card-actions-row">
+                <button type="button" class="btn btn-sm btn-primary project-preview-btn" data-project-id="1">
+                  <span>Live Demo</span>
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                </button>
+                <a href="https://github.com/shahzaib" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline dynamic-github-link">
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                  <span>GitHub</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 2: NovaCommerce E-Commerce Website (Requested) -->
+          <article class="project-showcase-card reveal-on-scroll delay-1" data-category="ecommerce">
+            <div class="card-media-wrap">
+              <img src="./project2.jpg" alt="NovaCommerce E-Commerce Store" class="card-thumbnail" loading="lazy" referrerpolicy="no-referrer">
+              <div class="card-media-overlay">
+                <span class="category-chip">E-Commerce</span>
+              </div>
+              <button type="button" class="card-quick-view-btn project-preview-btn" data-project-id="2" aria-label="Quick View E-Commerce Project">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                <span>Project Preview</span>
+              </button>
+            </div>
+            
+            <div class="card-details">
+              <div class="card-meta-line">
+                <span>Digital Storefront</span>
+                <span class="meta-dot">·</span>
+                <span>Cart &amp; Checkout</span>
+              </div>
+              <h3 class="card-project-title">NovaCommerce Modern Storefront</h3>
+              <p class="card-project-desc">
+                High-end modern shopping platform featuring real-time product filtering by price &amp; category, persistent shopping bag calculation with LocalStorage, and responsive checkout.
+              </p>
+
+              <!-- Technologies Used -->
+              <div class="card-tech-row">
+                <span class="tech-item">HTML5</span>
+                <span class="tech-item">CSS Flexbox</span>
+                <span class="tech-item">Vanilla JS</span>
+                <span class="tech-item">LocalStorage</span>
+              </div>
+
+              <!-- Action Links -->
+              <div class="card-actions-row">
+                <button type="button" class="btn btn-sm btn-primary project-preview-btn" data-project-id="2">
+                  <span>Live Demo</span>
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                </button>
+                <a href="https://github.com/shahzaib" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline dynamic-github-link">
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                  <span>GitHub</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 3: Business Website (Requested) -->
+          <article class="project-showcase-card reveal-on-scroll delay-2" data-category="business">
+            <div class="card-media-wrap">
+              <img src="./project3.jpg" alt="Apex Business & Agency Platform" class="card-thumbnail" loading="lazy" referrerpolicy="no-referrer">
+              <div class="card-media-overlay">
+                <span class="category-chip">Corporate Business</span>
+              </div>
+              <button type="button" class="card-quick-view-btn project-preview-btn" data-project-id="3" aria-label="Quick View Business Project">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                <span>Project Preview</span>
+              </button>
+            </div>
+            
+            <div class="card-details">
+              <div class="card-meta-line">
+                <span>Corporate Agency</span>
+                <span class="meta-dot">·</span>
+                <span>Services &amp; Analytics</span>
+              </div>
+              <h3 class="card-project-title">Apex Corporate Business Website</h3>
+              <p class="card-project-desc">
+                A multi-page corporate agency website featuring interactive service matrices, performance metric visualizers, case study showcases, and a multi-step client lead capture funnel.
+              </p>
+
+              <!-- Technologies Used -->
+              <div class="card-tech-row">
+                <span class="tech-item">HTML5</span>
+                <span class="tech-item">CSS Grid</span>
+                <span class="tech-item">Vanilla JS</span>
+                <span class="tech-item">SVG Charts</span>
+              </div>
+
+              <!-- Action Links -->
+              <div class="card-actions-row">
+                <button type="button" class="btn btn-sm btn-primary project-preview-btn" data-project-id="3">
+                  <span>Live Demo</span>
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                </button>
+                <a href="https://github.com/shahzaib" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline dynamic-github-link">
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                  <span>GitHub</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 4: Personal Developer Portfolio (Requested) -->
+          <article class="project-showcase-card reveal-on-scroll delay-3" data-category="portfolio">
+            <div class="card-media-wrap">
+              <img src="./project1.jpg" alt="Shahzaib Personal Developer Portfolio" class="card-thumbnail" loading="lazy" referrerpolicy="no-referrer">
+              <div class="card-media-overlay">
+                <span class="category-chip">Developer Portfolio</span>
+              </div>
+              <button type="button" class="card-quick-view-btn project-preview-btn" data-project-id="4" aria-label="Quick View Portfolio Project">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                <span>Project Preview</span>
+              </button>
+            </div>
+            
+            <div class="card-details">
+              <div class="card-meta-line">
+                <span>Personal Brand</span>
+                <span class="meta-dot">·</span>
+                <span>Dark &amp; Green Theme</span>
+              </div>
+              <h3 class="card-project-title">Personal Developer Portfolio</h3>
+              <p class="card-project-desc">
+                The very portfolio you are browsing: an ultra-fast, zero-dependency personal website featuring custom glassmorphism, dynamic typing, video demonstrations, and direct WhatsApp contact dispatch.
+              </p>
+
+              <!-- Technologies Used -->
+              <div class="card-tech-row">
+                <span class="tech-item">HTML5</span>
+                <span class="tech-item">CSS3 Variables</span>
+                <span class="tech-item">Vanilla JS</span>
+                <span class="tech-item">WhatsApp API</span>
+              </div>
+
+              <!-- Action Links -->
+              <div class="card-actions-row">
+                <button type="button" class="btn btn-sm btn-primary project-preview-btn" data-project-id="4">
+                  <span>Live Demo</span>
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                </button>
+                <a href="https://github.com/shahzaib" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline dynamic-github-link">
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                  <span>GitHub</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECTION 5: VIDEOS SECTION (Showcase with Custom Video Players)
+         ========================================================================== -->
+    <section class="section videos-section" id="videos">
+      <div class="container">
+        
+        <div class="section-header reveal-on-scroll">
+          <p class="section-kicker">Video Demos</p>
+          <h2 class="section-title">Motion, Interaction &amp; Performance In Action</h2>
+          <div class="section-line"></div>
+        </div>
+
+        <!-- Distinct Video Showcase Theater Grid -->
+        <div class="video-theater-grid" id="videosContainer">
+          
+          <!-- Video 1 -->
+          <div class="theater-card reveal-on-scroll">
+            <div class="theater-screen">
+              <video class="showcase-video-player" controls playsinline preload="metadata">
+                <source src="./video1.mp4" type="video/mp4">
+                Your browser does not support HTML5 video.
+              </video>
+              <div class="theater-tag">Video 01 · Motion UI</div>
+            </div>
+            
+            <div class="theater-info">
+              <div class="theater-headline-row">
+                <h3 class="theater-title">Responsive UI Animation &amp; Component States</h3>
+                <span class="theater-duration">0:05 HD</span>
+              </div>
+              <p class="theater-desc">
+                Demonstration of responsive UI breakpoints, smooth CSS transitions, interactive mobile drawer navigation, and micro-interactions built with vanilla web technologies.
+              </p>
+              <div class="theater-points">
+                <span>✓ Smooth 60fps Transitions</span>
+                <span>✓ Multi-device adaptation</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Video 2 -->
+          <div class="theater-card reveal-on-scroll delay-1">
+            <div class="theater-screen">
+              <video class="showcase-video-player" controls playsinline preload="metadata">
+                <source src="./video2.mp4" type="video/mp4">
+                Your browser does not support HTML5 video.
+              </video>
+              <div class="theater-tag">Video 02 · Speed</div>
+            </div>
+            
+            <div class="theater-info">
+              <div class="theater-headline-row">
+                <h3 class="theater-title">Web Performance &amp; Asset Optimization</h3>
+                <span class="theater-duration">0:05 HD</span>
+              </div>
+              <p class="theater-desc">
+                High-performance delivery test achieving 99+ Lighthouse audit scores, sub-second first contentful paint (FCP), zero layout shifts (CLS), and lean asset payloads.
+              </p>
+              <div class="theater-points">
+                <span>✓ 99+ Google Lighthouse</span>
+                <span>✓ Zero Cumulative Layout Shift</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Video 3 -->
+          <div class="theater-card reveal-on-scroll delay-2">
+            <div class="theater-screen">
+              <video class="showcase-video-player" controls playsinline preload="metadata">
+                <source src="./video3.mp4" type="video/mp4">
+                Your browser does not support HTML5 video.
+              </video>
+              <div class="theater-tag">Video 03 · Architecture</div>
+            </div>
+            
+            <div class="theater-info">
+              <div class="theater-headline-row">
+                <h3 class="theater-title">Clean Code Architecture &amp; Component Demo</h3>
+                <span class="theater-duration">0:05 HD</span>
+              </div>
+              <p class="theater-desc">
+                Codebase walkthrough detailing semantic HTML5 landmarks, organized CSS custom property palettes, and clean modular JavaScript event handlers.
+              </p>
+              <div class="theater-points">
+                <span>✓ Modular Vanilla Architecture</span>
+                <span>✓ Maintainable Scalable Code</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECTION 6: SERVICES SECTION (6 Requested Services)
+         ========================================================================== -->
+    <section class="section services-section" id="services">
+      <div class="container">
+        
+        <div class="section-header reveal-on-scroll">
+          <p class="section-kicker">Services</p>
+          <h2 class="section-title">Professional Front-End Engineering Services</h2>
+          <div class="section-line"></div>
+        </div>
+
+        <div class="services-modern-grid">
+          
+          <!-- Service 1: Front-End Web Development -->
+          <div class="service-feature-card reveal-on-scroll">
+            <div class="service-icon-wrapper">
+              <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+            </div>
+            <h3 class="service-card-title">Front-End Web Development</h3>
+            <p class="service-card-desc">
+              Custom building lightweight, responsive, and robust websites from scratch using semantic HTML5, CSS3, and high-performance Vanilla JavaScript.
+            </p>
+            <ul class="service-checklist">
+              <li>Clean, modular, and maintainable code</li>
+              <li>Fast loading with zero framework bloat</li>
+              <li>W3C validated standards compliance</li>
+            </ul>
+          </div>
+
+          <!-- Service 2: Responsive Website Design -->
+          <div class="service-feature-card reveal-on-scroll delay-1">
+            <div class="service-icon-wrapper">
+              <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+            </div>
+            <h3 class="service-card-title">Responsive Website Design</h3>
+            <p class="service-card-desc">
+              Creating fluid layouts that adapt seamlessly to mobile phones, tablets, laptops, and ultra-wide desktop monitors without breaking layout geometry.
+            </p>
+            <ul class="service-checklist">
+              <li>Mobile-first media query architecture</li>
+              <li>Touch-friendly interfaces &amp; gestures</li>
+              <li>Fluid typographic &amp; spacing scales</li>
+            </ul>
+          </div>
+
+          <!-- Service 3: Landing Page Development -->
+          <div class="service-feature-card reveal-on-scroll delay-2">
+            <div class="service-icon-wrapper">
+              <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+            </div>
+            <h3 class="service-card-title">Landing Page Development</h3>
+            <p class="service-card-desc">
+              High-converting, visually captivating promotional landing pages tailored to maximize lead generation, product launches, and client engagement.
+            </p>
+            <ul class="service-checklist">
+              <li>Compelling visual hierarchy &amp; CTAs</li>
+              <li>Smooth scroll reveals &amp; micro-interactions</li>
+              <li>Integrated direct WhatsApp contact funnels</li>
+            </ul>
+          </div>
+
+          <!-- Service 4: Business Website Development -->
+          <div class="service-feature-card reveal-on-scroll">
+            <div class="service-icon-wrapper">
+              <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect><line x1="9" y1="22" x2="9" y2="22.01"></line><line x1="15" y1="22" x2="15" y2="22.01"></line><line x1="9" y1="6" x2="9" y2="6.01"></line><line x1="15" y1="6" x2="15" y2="6.01"></line><line x1="9" y1="10" x2="9" y2="10.01"></line><line x1="15" y1="10" x2="15" y2="10.01"></line><line x1="9" y1="14" x2="9" y2="14.01"></line><line x1="15" y1="14" x2="15" y2="14.01"></line><line x1="9" y1="18" x2="9" y2="18.01"></line><line x1="15" y1="18" x2="15" y2="18.01"></line></svg>
+            </div>
+            <h3 class="service-card-title">Business Website Development</h3>
+            <p class="service-card-desc">
+              End-to-end multi-page website solutions for restaurants, agencies, consultancies, and local businesses seeking a prestigious digital presence.
+            </p>
+            <ul class="service-checklist">
+              <li>Comprehensive company profile &amp; service pages</li>
+              <li>Interactive maps, menus, &amp; quote forms</li>
+              <li>Cross-browser compatibility tested</li>
+            </ul>
+          </div>
+
+          <!-- Service 5: Website UI Design -->
+          <div class="service-feature-card reveal-on-scroll delay-1">
+            <div class="service-icon-wrapper">
+              <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="M2 2l7.586 7.586"></path><circle cx="11" cy="11" r="2"></circle></svg>
+            </div>
+            <h3 class="service-card-title">Website UI Design</h3>
+            <p class="service-card-desc">
+              Transforming wireframes, Figma mockups, or conceptual sketches into sleek, modern, user-centric interfaces with refined dark/light color palettes.
+            </p>
+            <ul class="service-checklist">
+              <li>100% pixel-perfect Figma to HTML/CSS</li>
+              <li>Intuitive user journeys &amp; feedback states</li>
+              <li>Accessible typography &amp; contrast ratios</li>
+            </ul>
+          </div>
+
+          <!-- Service 6: Website Maintenance -->
+          <div class="service-feature-card reveal-on-scroll delay-2">
+            <div class="service-icon-wrapper">
+              <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+            </div>
+            <h3 class="service-card-title">Website Maintenance &amp; Optimization</h3>
+            <p class="service-card-desc">
+              Continuous performance tuning, bug fixing, content refreshes, speed enhancements, and technical updates to keep your web presence running smoothly.
+            </p>
+            <ul class="service-checklist">
+              <li>Speed &amp; Core Web Vitals optimization</li>
+              <li>Responsive layout fixes &amp; browser updates</li>
+              <li>Ongoing feature enhancements &amp; support</li>
+            </ul>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECTION 7: CONTACT SECTION (WhatsApp Direct Integration)
+         ========================================================================== -->
+    <section class="section contact-section" id="contact">
+      <div class="container">
+        
+        <div class="section-header reveal-on-scroll">
+          <p class="section-kicker">Get In Touch</p>
+          <h2 class="section-title">Let's Discuss Your Next Web Project</h2>
+          <div class="section-line"></div>
+        </div>
+
+        <div class="contact-master-grid">
+          
+          <!-- Left Column: Direct Info & Social Hub -->
+          <div class="contact-left-column reveal-on-scroll">
+            <h3 class="contact-col-heading">Ready to bring your ideas to life?</h3>
+            <p class="contact-col-desc">
+              I am currently accepting freelance web development inquiries, contract opportunities, and full-time roles. Fill out the form to instantly initiate a WhatsApp conversation, or connect directly through any of the channels below.
+            </p>
+
+            <!-- Contact Information Cards -->
+            <div class="contact-quick-cards">
+              
+              <!-- Direct WhatsApp -->
+              <a href="https://wa.me/92349614607" target="_blank" rel="noopener noreferrer" class="contact-channel-card dynamic-whatsapp-link">
+                <div class="channel-icon-box">
+                  <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                </div>
+                <div class="channel-text">
+                  <span class="channel-label">WhatsApp (Fastest Response)</span>
+                  <span class="channel-value" id="contactWhatsappDisplay">+92 3496146037</span>
+                </div>
+                <div class="channel-arrow">→</div>
+              </a>
+
+              <!-- LinkedIn -->
+              <a href="https://www.linkedin.com/in/shahzaib-jamshaid-401605405?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener noreferrer" class="contact-channel-card dynamic-linkedin-link">
+                <div class="channel-icon-box">
+                  <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                </div>
+                <div class="channel-text">
+                  <span class="channel-label">LinkedIn Profile</span>
+                  <span class="channel-value">linkedin.com/in/shahzaib</span>
+                </div>
+                <div class="channel-arrow">→</div>
+              </a>
+
+              <!-- GitHub -->
+              <a href="https://github.com/shahzaib" target="_blank" rel="noopener noreferrer" class="contact-channel-card dynamic-github-link">
+                <div class="channel-icon-box">
+                  <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                </div>
+                <div class="channel-text">
+                  <span class="channel-label">GitHub Repositories</span>
+                  <span class="channel-value">github.com/shahzaib</span>
+                </div>
+                <div class="channel-arrow">→</div>
+              </a>
+
+            </div>
+
+            <!-- Social Media Buttons -->
+            <div class="social-hub-container">
+              <span class="social-hub-title">Follow &amp; Network:</span>
+              <div class="social-pills-row">
+                <a href="https://wa.me/923496146037" target="_blank" rel="noopener noreferrer" class="social-pill dynamic-whatsapp-link">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                  <span>WhatsApp</span>
+                </a>
+                <a href="https://www.linkedin.com/in/shahzaib-jamshaid-401605405?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener noreferrer" class="social-pill dynamic-linkedin-link">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                  <span>LinkedIn</span>
+                </a>
+                <a href="https://github.com/shahzaib" target="_blank" rel="noopener noreferrer" class="social-pill dynamic-github-link">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                  <span>GitHub</span>
+                </a>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Right Column: Interactive WhatsApp Contact Form -->
+          <div class="contact-form-glass-card reveal-on-scroll delay-1">
+            <div class="form-header-badge">
+              <span class="badge-dot"></span>
+              <span>Direct WhatsApp Message Dispatch</span>
+            </div>
+            
+            <h3 class="form-main-heading">Send a Message</h3>
+            <p class="form-instruction">
+              Fill in your contact information and message below. Clicking "Send Message" will validate the inputs, compile your details, and automatically open WhatsApp with Shahzaib.
+            </p>
+
+            <form id="portfolioContactForm" novalidate>
+              
+              <!-- Full Name Field -->
+              <div class="input-field-wrap">
+                <label for="contactFullName" class="input-label">Your Name <span class="req">*</span></label>
+                <div class="input-with-icon">
+                  <input type="text" id="contactFullName" name="fullname" class="text-input" placeholder="e.g. Alex Morgan" required autocomplete="name">
+                </div>
+                <span class="validation-msg" id="errorFullName"></span>
+              </div>
+
+              <!-- Email Address Field -->
+              <div class="input-field-wrap">
+                <label for="contactEmail" class="input-label">Email Address <span class="req">*</span></label>
+                <div class="input-with-icon">
+                  <input type="email" id="contactEmail" name="email" class="text-input" placeholder="e.g. alex@example.com" required autocomplete="email">
+                </div>
+                <span class="validation-msg" id="errorEmail"></span>
+              </div>
+
+              <!-- Phone Number Field -->
+              <div class="input-field-wrap">
+                <label for="contactPhone" class="input-label">Phone Number <span class="req">*</span></label>
+                <div class="input-with-icon">
+                  <input type="tel" id="contactPhone" name="phone" class="text-input" placeholder="e.g. +1 555 123 4567" required autocomplete="tel">
+                </div>
+                <span class="validation-msg" id="errorPhone"></span>
+              </div>
+
+              <!-- Message Field -->
+              <div class="input-field-wrap">
+                <label for="contactMessage" class="input-label">Project Details &amp; Message <span class="req">*</span></label>
+                <textarea id="contactMessage" name="message" rows="4" class="text-textarea" placeholder="Tell me about your project, timeline, or requirements..." required></textarea>
+                <span class="validation-msg" id="errorMessage"></span>
+              </div>
+
+              <!-- Submit Button -->
+              <button type="submit" class="btn btn-primary btn-block btn-glow" id="sendMessageBtn">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                <span>Send Message via WhatsApp</span>
+              </button>
+
+              <div class="form-privacy-note">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                <span>100% Client-side WhatsApp protocol. No backend database or third-party tracking required.</span>
+              </div>
+
+            </form>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==========================================================================
+       MODAL: FULL PROJECT DETAILS LIGHTBOX (Vanilla JS)
+       ========================================================================== -->
+  <div class="project-modal" id="projectModal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal-backdrop" id="modalBackdrop"></div>
+    <div class="modal-dialog">
+      <button type="button" class="modal-close" id="modalCloseBtn" aria-label="Close project preview">
+        <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+      <div class="modal-body" id="modalBody">
+        <!-- Injected via JavaScript -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Feedback -->
+  <div class="toast-notification" id="toastNotification" role="alert" aria-live="polite">
+    <span class="toast-symbol">✓</span>
+    <span class="toast-text" id="toastMessage">Launching WhatsApp...</span>
+  </div>
+
+  <!-- Back to Top Button -->
+  <button type="button" class="back-to-top-btn" id="backToTopBtn" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+  </button>
+
+  <!-- ==========================================================================
+       FOOTER
+       ========================================================================== -->
+  <footer class="site-footer">
+    <div class="container footer-container">
+      
+      <div class="footer-top-grid">
+        <div class="footer-brand-pane">
+          <div class="brand-logo footer-logo">
+            <span class="logo-symbol">&lt;/&gt;</span>
+            <span class="logo-text">Shahzaib<span class="logo-dot">.</span></span>
+          </div>
+          <p class="footer-bio">
+            Front-End Web Developer crafting high-performance, responsive digital experiences with clean HTML5, CSS3, and Vanilla JavaScript. Available for worldwide freelance &amp; contracts.
+          </p>
+        </div>
+
+        <div class="footer-links-pane">
+          <h4 class="footer-col-title">Navigation</h4>
+          <ul class="footer-nav-list">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About Me</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#videos">Videos</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-social-pane">
+          <h4 class="footer-col-title">Connect</h4>
+          <div class="footer-social-icons">
+            <a href="https://wa.me/923496146037" target="_blank" rel="noopener noreferrer" class="footer-icon-link dynamic-whatsapp-link" title="WhatsApp" aria-label="WhatsApp">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+            </a>
+            <a href="https://www.linkedin.com/in/shahzaib-jamshaid-401605405?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener noreferrer" class="footer-icon-link dynamic-linkedin-link" title="LinkedIn" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+            </a>
+            <a href="https://github.com/shahzaib" target="_blank" rel="noopener noreferrer" class="footer-icon-link dynamic-github-link" title="GitHub" aria-label="GitHub">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+            </a>
+          </div>
+          <p class="footer-availability">
+            <span class="avail-dot"></span> Available for client projects
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-bottom-line">
+        <p>&copy; <span id="currentYear"></span> Shahzaib. All rights reserved. Built with pure HTML5, CSS3, &amp; Vanilla JavaScript.</p>
+        <p class="footer-speed-tag">⚡ Ultra-Fast 60fps Native Web Performance</p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Vanilla JavaScript -->
+  <script src="./script.js"></script>
+</body>
+</html>
